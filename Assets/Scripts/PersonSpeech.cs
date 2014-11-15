@@ -8,6 +8,7 @@ public class PersonSpeech : MonoBehaviour
 		public GameObject speechbubble;
 		private TextMesh speechbubbleText;
 		private bool bubbleStatus = false;
+	private Vector3 initialBubble;
 
 
 		// Use this for initialization
@@ -15,6 +16,8 @@ public class PersonSpeech : MonoBehaviour
 		{
 				soundManager = GetComponent<AudioSource> ();
 				speechbubbleText = speechbubble.GetComponentInChildren<TextMesh> ();
+		speechbubbleText.renderer.sortingOrder = 20;
+		initialBubble=speechbubble.transform.localScale;
 				speechbubble.transform.localScale = new Vector3 (0f, 0f, 0f);
 		}
 	
@@ -46,7 +49,7 @@ public class PersonSpeech : MonoBehaviour
 
 		void showBubble ()
 		{ 
-				StartCoroutine (BubbleScale (speechbubble.transform.localScale, new Vector3 (1, 1, 1), bubblePopSpeed, 0, true));
+		StartCoroutine (BubbleScale (speechbubble.transform.localScale, initialBubble, bubblePopSpeed, 0, true));
 		}
 
 		void hideBubble ()

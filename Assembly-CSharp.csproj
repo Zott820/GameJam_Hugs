@@ -46,8 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CollisionDetect.cs" />
-     <Compile Include="Assets\PersonSpeech.cs" />
+     <Compile Include="Assets\AnimatePeople.cs" />
+     <Compile Include="Assets\Scripts\CollisionDetect.cs" />
+     <Compile Include="Assets\Scripts\PersonSpeech.cs" />
+     <Compile Include="Assets\generateRandomNPC.cs" />
      <None Include="Assets\Resources\Audio\Person_1\Reject\strings.txt" />
      <None Include="Assets\Resources\Audio\Person_1\Propose\strings.txt" />
      <None Include="Assets\Resources\Audio\Person_1\Acceptance\strings.txt" />
