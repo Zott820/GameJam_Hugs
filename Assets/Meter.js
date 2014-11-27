@@ -20,14 +20,16 @@ class Meter extends MonoBehaviour{
 		 *   + regular point
 		 * then check the score against the limit
 		 */
-		 Debug.Log("gere");
+		 
+		// Debug.Log("gere");
 		if (Mathf.Abs(p.cha - npc.cha) > npc.buffer) {
 			score += npc.score * Mod(p, npc);
 		} else {
 			score += npc.score;
 		}
-		Debug.Log("change: " + npc.score);
-		CheckLimit();
+		//Debug.Log("change: " + npc.score);
+		//CheckLimit(); Meant for a bar with maximum, otherwise just makes early levels easier.
+		
 		scoreText.guiText.text = "Score: " + score.ToString();
 		
 		//GameObject.FindWithTag("SceneMap").AddComponent(scoreText);

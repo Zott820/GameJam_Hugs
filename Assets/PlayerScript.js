@@ -19,6 +19,7 @@ class PlayerScript extends MonoBehaviour {
 	var left1  : UnityEngine.KeyCode = UnityEngine.KeyCode.LeftArrow;
 	var down1  : UnityEngine.KeyCode = UnityEngine.KeyCode.DownArrow;
 	var right1 : UnityEngine.KeyCode = UnityEngine.KeyCode.RightArrow;
+	var quit : UnityEngine.KeyCode = UnityEngine.KeyCode.Escape;
 
 	var personSpeechObj :  PersonSpeech;
 
@@ -28,7 +29,7 @@ class PlayerScript extends MonoBehaviour {
 	var r : boolean;
 	
 
-	function Start() {
+	function Awake() {
 		cam = UnityEngine.GameObject.FindWithTag( "MainCamera" );
 		cam.transform.position = new Vector3(transform.position.x,transform.position.y,-10);
 		gameObject.tag = "Player";
@@ -39,17 +40,15 @@ class PlayerScript extends MonoBehaviour {
 	}
 	function Update() {
 
-		Timer += Time.deltaTime;
-		
 		if (Input.GetKeyDown ("space")) {
 				personSpeechObj.playVoice (1, "Propose");
 		}
-
-		if (Timer > 0.3) {
+		 if (UnityEngine.Input.GetKey(quit)) {
+				Application.Quit();
+		}
 			GetPlayerInput();
 			ExecutePlayerInput();
-			Timer = 0;
-		} else {	
+			
 				switch (movDirection) {
 					case 1:
 					case 2:
@@ -71,7 +70,7 @@ class PlayerScript extends MonoBehaviour {
 						break;
 				}
 			
-		}
+		
 	}
 	function ExecutePlayerInput() {
 		SetPlayerDirection();
